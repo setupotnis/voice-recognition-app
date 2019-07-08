@@ -11,7 +11,11 @@ recognition.onstart = function (){
 }
 
 recognition.onresult = (event) => {
-    console.log(event);
+    const current = event.resultIndex;
+
+    const transcript = event.results[current][0].transcript;
+    content.textContent = transcript;
+    readOutloud(transcript);
 
 }
 
@@ -20,4 +24,14 @@ recognition.onresult = (event) => {
 btn.addEventListener('click', () => {
     recognition.start();
 
-})
+});
+
+function readOutloud(message) {
+    const speech = new SpeechSynthesisUtterance();
+    speech.volume = 1;
+    speech.rate = 1;
+    speech.pitch = 1;
+    speech.text = message;
+
+    window.speechSynthesis.speak(speech);
+}
