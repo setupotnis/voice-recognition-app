@@ -1,0 +1,10 @@
+.talk {
+    display: grid;
+    border: 2px 5px;
+    padding: 20px 140px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: rgb(81, 149, 212);
+    color: white;
+    font-size: 50px;
+}
